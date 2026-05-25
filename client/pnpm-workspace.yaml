@@ -1,0 +1,18 @@
+allowBuilds:
+  msw: true
+  sharp: true
+  unrs-resolver: true
+
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
+# Blocks transitive deps from using git repos or direct tarball URLs.
+# Closes the exact vector used in the TanStack attack.
+blockExoticSubdeps: true
+
+# Don't install package versions published less than 7 days ago.
+minimumReleaseAge: 10080 # minutes (7 days)
+
+# If the only matching version is too new, fail loudly instead of silently
+# falling back to an older one.
+minimumReleaseAgeStrict: true

@@ -1,0 +1,173 @@
+/* ============================================================
+   Teacher's App — Clean & Minimal Violet Theme
+   Tailwind CSS v4 (CSS-first @theme syntax)
+   ============================================================ */
+
+@import "tailwindcss";
+
+/* Enable class-based dark mode: <html class="dark"> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* ---- Brand (violet) ---- */
+  --color-brand-50: #f0effb;
+  --color-brand-100: #d6d2f4;
+  --color-brand-200: #b3abeb;
+  --color-brand-400: #7c6fe8;
+  --color-brand-600: #5448c9;
+  --color-brand-900: #2a2470;
+  --color-brand: #5448c9;
+
+  /* ---- Accent (muted lavender) ---- */
+  --color-accent-50: #f4f1f8;
+  --color-accent-100: #e0d9ec;
+  --color-accent-200: #c3b6d9;
+  --color-accent-400: #9881bc;
+  --color-accent-600: #6b548f;
+  --color-accent-900: #382952;
+  --color-accent: #9881bc;
+
+  /* ---- Neutrals (cool gray) ---- */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f8f8fa;
+  --color-neutral-100: #ececef;
+  --color-neutral-400: #8a8a93;
+  --color-neutral-700: #46464f;
+  --color-neutral-900: #1b1b22;
+
+  /* ---- Semantic ---- */
+  --color-success: #2e9e78;
+  --color-warning: #e0a23a;
+  --color-danger: #d85556;
+  --color-info: #4a86cf;
+
+  /* ---- Dark-mode raw surfaces (referenced by tokens below) ---- */
+  --color-dark-bg: #131319;
+  --color-dark-surface: #1c1c24;
+  --color-dark-raised: #26262f;
+  --color-brand-dark: #8e81f0;
+  --color-accent-dark: #b3abeb;
+}
+
+@theme {
+  /* font sizes — paired with sensible line-heights */
+  --text-xs: 0.75rem; /* 12px — labels, badges */
+  --text-xs--line-height: 1.4;
+  --text-sm: 0.875rem; /* 14px — secondary, buttons, nav */
+  --text-sm--line-height: 1.45;
+  --text-base: 1rem; /* 16px — body, inputs */
+  --text-base--line-height: 1.5;
+  --text-lg: 1.125rem; /* 18px — h4 */
+  --text-lg--line-height: 1.4;
+  --text-xl: 1.25rem; /* 20px — h3 */
+  --text-xl--line-height: 1.3;
+  --text-2xl: 1.5rem; /* 24px — h2 */
+  --text-2xl--line-height: 1.25;
+  --text-3xl: 1.875rem; /* 30px — h1 */
+  --text-3xl--line-height: 1.2;
+
+  /* weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* tracking */
+  --tracking-tight: -0.02em; /* headings 24px+ */
+  --tracking-wide: 0.02em; /* uppercase labels */
+}
+
+@theme {
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-dm-sans), ui-monospace, monospace;
+}
+
+/* ============================================================
+   Semantic role tokens — these flip automatically in dark mode.
+   Use these in markup (bg-surface, text-body, border-default…)
+   rather than the raw scale, so light/dark just works.
+   ============================================================ */
+
+:root {
+  --color-bg: var(--color-neutral-0);
+  --color-surface: var(--color-neutral-50);
+  --color-raised: var(--color-neutral-0);
+  --color-muted: var(--color-neutral-100);
+  --color-border-default: var(--color-neutral-100);
+  --color-text-primary: var(--color-neutral-900);
+  --color-text-body: var(--color-neutral-700);
+  --color-text-hint: var(--color-neutral-400);
+  --color-brand-fg: var(--color-brand);
+  --color-accent-fg: var(--color-accent);
+
+  /* shadcn expected variables */
+  --color-primary: var(--color-brand);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--color-accent-100);
+  --color-secondary-foreground: var(--color-accent-900);
+  --color-background: var(--color-neutral-0);
+  --color-foreground: var(--color-neutral-900);
+  --color-muted-foreground: var(--color-neutral-400);
+  --color-border: var(--color-neutral-100);
+  --color-input: var(--color-neutral-100);
+  --color-ring: var(--color-brand-400);
+  --color-destructive: var(--color-danger);
+  --radius-md: 0.5rem;
+}
+
+.dark {
+  --color-bg: var(--color-dark-bg);
+  --color-surface: var(--color-dark-surface);
+  --color-raised: var(--color-dark-raised);
+  --color-muted: #2e2e38;
+  --color-border-default: #2e2e38;
+  --color-text-primary: #f3f2f7;
+  --color-text-body: #c8c7d0;
+  --color-text-hint: #a4a3ae;
+  --color-brand-fg: var(--color-brand-dark);
+  --color-accent-fg: var(--color-accent-dark);
+
+  /* shadcn expected variables */
+  --color-primary: var(--color-brand-dark);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--color-dark-raised);
+  --color-secondary-foreground: #c8c7d0;
+  --color-background: var(--color-dark-bg);
+  --color-foreground: #f3f2f7;
+  --color-muted-foreground: #a4a3ae;
+  --color-border: #2e2e38;
+  --color-input: #2e2e38;
+  --color-ring: var(--color-brand-dark);
+  --color-destructive: var(--color-danger);
+}
+
+/* Register the role tokens as Tailwind utilities (bg-*, text-*, border-*) */
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-raised: var(--color-raised);
+  --color-muted: var(--color-muted);
+  --color-border-default: var(--color-border-default);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-body: var(--color-text-body);
+  --color-text-hint: var(--color-text-hint);
+  --color-brand-fg: var(--color-brand-fg);
+  --color-accent-fg: var(--color-accent-fg);
+
+  /* shadcn tokens */
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-foreground);
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --color-border: var(--color-border);
+  --color-input: var(--color-input);
+  --color-ring: var(--color-ring);
+  --color-destructive: var(--color-destructive);
+}
+
+/* ---- Signature gradient (use sparingly) ---- */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(135deg, #7c6fe8 0%, #5448c9 100%);
+}
