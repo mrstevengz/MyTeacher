@@ -1,7 +1,4 @@
 "use client"
-// "use client" is required because we use useState for the password toggle.
-// Server Components cannot hold interactive state.
-
 import { useState } from "react"
 import { Eye, EyeOff, GraduationCap } from "lucide-react"
 import { Field, FieldLabel, FieldGroup } from "@/components/ui/field"
@@ -12,9 +9,8 @@ export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false)
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-accent-50 px-4">
-            <div className="w-full max-w-md">
-                <div className="bg-raised rounded-2xl shadow-xl p-8 sm:p-10 flex flex-col gap-8">
+        <div className="flex flex-1 items-center justify-center py-8">
+                <div className="bg-raised rounded-2xl shadow-xl p-8 sm:p-10 flex flex-col gap-8 w-full max-w-md">
                     <div className="flex flex-col items-center gap-3 text-center">
                         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-gradient text-white">
                             <GraduationCap size={24} />
@@ -94,7 +90,6 @@ export default function LoginPage() {
                     </p>
 
                 </div>
-            </div>
         </div>
     )
 }
