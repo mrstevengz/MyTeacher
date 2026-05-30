@@ -1,22 +1,5 @@
-import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  axes: ["opsz"],
-});
 
 export const metadata = {
   title: "MyTeacher",
@@ -25,15 +8,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} h-full antialiased`}
-    >
-      <body className="min-h-screen flex flex-col items-center bg-accent-50 px-4">
-        <div className="w-full max-w-md lg:max-w-2xl flex flex-col flex-1 mx-auto pt-16">
-          <Navbar />
-          {children}
-        </div>
+    <html lang="en">
+      <body className="min-h-screen flex flex-col bg-accent-50">
+        <Navbar />
+        {children}
       </body>
     </html>
   );

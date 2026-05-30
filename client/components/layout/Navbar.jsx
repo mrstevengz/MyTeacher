@@ -13,13 +13,10 @@ export default function Navbar() {
                 </span>
             </Link>
 
-            {/* <div className="hidden md:flex items-center gap-1 text-sm text-text-body">
-                <Link href="#features" className="px-3 py-1.5 rounded-md hover:bg-muted hover:text-text-primary transition-colors">Features</Link>
-                <Link href="#pricing" className="px-3 py-1.5 rounded-md hover:bg-muted hover:text-text-primary transition-colors">Pricing</Link>
-                <Link href="#about" className="px-3 py-1.5 rounded-md hover:bg-muted hover:text-text-primary transition-colors">About</Link>
-            </div> */}
-
-            <Link href="/login" className={buttonVariants({ size: "sm" })}>Sign In</Link>
+            <div className="flex gap-3">
+            <Link href="/login" className={buttonVariants({ size: "lg" })}>Log In</Link>
+            <Link href="/register" className={buttonVariants({ size: "lg" })}>Sign Up</Link>
+            </div>
         </nav>
     )
 }

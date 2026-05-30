@@ -171,3 +171,12 @@
 @utility bg-brand-gradient {
   background-image: linear-gradient(135deg, #7c6fe8 0%, #5448c9 100%);
 }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.45s ease-out both;
+}
