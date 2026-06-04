@@ -11,3 +11,30 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Teacher {
+  id  Int @id @default(autoincrement())
+  name  String @unique
+  faculty  String
+  reviews Review[]
+}
+
+model User {
+  id  Int @id @default(autoincrement())
+  name String @unique
+  faculty String
+  email String @unique
+  reviews Review[]
+}
+
+model Review {
+  id  Int @id @default(autoincrement())
+  body String
+  score Int
+  user  User @relation(fields: [userId], references: [id])
+  userId Int
+  teacherId Int
+  teacher Teacher @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  @@unique([userId, teacherId])
+}
